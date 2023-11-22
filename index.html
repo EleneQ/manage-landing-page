@@ -34,7 +34,12 @@
           <div class="hamburger"></div>
         </button>
         <nav>
-          <ul id="primary-navigation" class="primary-header__navigation flex">
+          <ul
+            aria-label="Primary navigation"
+            role="list"
+            id="primary-navigation"
+            class="primary-header__navigation flex"
+          >
             <li><a class="text-blue-9" href="#">Pricing</a></li>
             <li><a class="text-blue-9" href="#">Product</a></li>
             <li><a class="text-blue-9" href="#">About Us</a></li>
@@ -42,9 +47,7 @@
             <li><a class="text-blue-9" href="#">Community</a></li>
           </ul>
         </nav>
-        <a
-          class="btn-primary start-btn start-btn--header colorful-shadow"
-          href="#"
+        <a class="btn btn-primary orange-shadow colorful-shadow-hover" href="#"
           >Get Started</a
         >
       </header>
@@ -61,15 +64,15 @@
                 tasks while keeping the larger team goals in view.
               </p>
             </div>
-            <a class="btn-primary start-btn" href="#">Get Started</a>
+            <a class="btn btn-primary orange-shadow" href="#">Get Started</a>
           </div>
           <div class="intro-section__img">
             <img src="./images/illustration-intro.svg" alt="" />
           </div>
         </section>
 
-        <section class="features-section flex container flow-xxx">
-          <div class="flow difference">
+        <section class="product-info flex container flow-xxx">
+          <div class="flow product-info__unique">
             <h2 class="text-primary-blue-8 fs-8 fw-7">
               What’s different about Manage?
             </h2>
@@ -79,34 +82,34 @@
               teams.
             </p>
           </div>
-          <div class="features-section__features-list">
-            <ul class="flow" style="--flow-space: 2rem">
-              <li class="feature">
-                <h3 class="feature__title text-primary-blue-8 fw-7">
+          <div class="product-info__features-list">
+            <ul class="numbered-items flow" style="--flow-space: 2rem">
+              <li>
+                <h3 class="numbered-item__title text-primary-blue-8 fw-7">
                   Track company-wide progress
                 </h3>
-                <p>
+                <p class="numbered-item__body">
                   See how your day-to-day tasks fit into the wider vision. Go
                   from tracking progress at the milestone level all the way done
                   to the smallest of details. Never lose sight of the bigger
                   picture again.
                 </p>
               </li>
-              <li class="feature">
-                <h3 class="feature__title text-primary-blue-8 fw-7">
+              <li>
+                <h3 class="numbered-item__title text-primary-blue-8 fw-7">
                   Advanced built-in reports
                 </h3>
-                <p>
+                <p class="numbered-item__body">
                   Set internal delivery estimates and track progress toward
                   company goals. Our customisable dashboard helps you build out
                   the reports you need to keep key stakeholders informed.
                 </p>
               </li>
-              <li class="feature">
-                <h3 class="feature__title text-primary-blue-8 fw-7">
+              <li>
+                <h3 class="numbered-item__title text-primary-blue-8 fw-7">
                   Everything you need in one place
                 </h3>
-                <p>
+                <p class="numbered-item__body">
                   Stop jumping from one service to another to communicate, store
                   files, track tasks and share documents. Manage offers an
                   all-in-one team productivity solution.
@@ -116,61 +119,73 @@
           </div>
         </section>
 
-        <section class="simplify bg-primary-red-4">
+        <section class="carousel-section">
+          <h2 class="fs-8 fw-7 text-primary-blue-8 text-center">
+            What they've said
+          </h2>
+          <a class="btn btn-primary orange-shadow" href="#">Get Started</a>
+        </section>
+
+        <section class="call-to-action bg-primary-red-4">
           <div class="container">
             <div>
-              <p class="fs-9 fw-7 text-white max-width">
+              <p class="fs-9 fw-7 text-white">
                 Simplify how your team works today.
               </p>
             </div>
             <div>
-              <a class="btn-primary start-btn start-btn--simplify" href="#"
-                >Get Started</a
-              >
+              <a class="btn btn-secondary" href="#">Get Started</a>
             </div>
           </div>
         </section>
       </main>
 
       <footer class="primary-footer bg-blue-9">
-        <div
-          class="grid-container grid-container--footer flow"
-          style="--flow-space: 1.5rem"
-        >
+        <div class="container grid flow" style="--flow-space: 1.5rem">
           <div class="primary-footer__logo">
-            <img src="./images/logo.svg" alt="" />
+            <a href="#" aria-label="home">
+              <img src="./images/logo.svg" alt="logo" />
+            </a>
           </div>
 
-          <ul class="primary-footer__social-links flex">
+          <ul
+            class="primary-footer__social-links flex"
+            role="list"
+            aria-label="Social links"
+          >
             <li>
-              <a href="#"
+              <a aria-label="facebook" href="#"
                 ><img src="./images/icon-facebook.svg" alt="facebook icon"
               /></a>
             </li>
             <li>
-              <a href="#"
-                ><img src="./images/icon-instagram.svg" alt="instagram icon"
+              <a aria-label="youtube" href="#"
+                ><img src="./images/icon-youtube.svg" alt="youtube icon"
               /></a>
             </li>
             <li>
-              <a href="#"
+              <a aria-label="twitter" href="#"
                 ><img src="./images/icon-twitter.svg" alt="twitter icon"
               /></a>
             </li>
             <li>
-              <a href="#"
+              <a aria-label="pinterest" href="#"
                 ><img src="./images/icon-pinterest.svg" alt="pinterest icon"
               /></a>
             </li>
             <li>
-              <a href="#"
+              <a aria-label="instagram" href="#"
                 ><img src="./images/icon-instagram.svg" alt="instagram icon"
               /></a>
             </li>
           </ul>
 
           <nav class="primary-footer__navigation">
-            <ul class="nav-links flow">
+            <ul
+              aria-label="Footer navigation links"
+              role="list"
+              class="nav-links flow"
+            >
               <li>
                 <a href="#">Home</a>
               </li>
@@ -195,13 +210,17 @@
             </ul>
           </nav>
 
-          <form class="primary-footer__form" method="post">
+          <form class="primary-footer__form" action="" method="post">
             <input
               name="updates"
               placeholder="Updates in your email box..."
               type="email"
             />
-            <button class="bg-primary-red-4 text-white" type="submit">
+            <button
+              id="submit-btn"
+              class="btn bg-primary-red-4 text-white"
+              type="submit"
+            >
               Go
             </button>
           </form>
