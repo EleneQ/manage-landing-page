@@ -660,11 +660,11 @@ select {
 
 .product-info__unique::before {
   content: url(../images/bg-tablet-pattern.svg); /* this is the content instead of just a background img because, if it were a bg, the and the bg overflowed, it would get cut off and wouldn't show up, but, with content, we don't have that problem */
-  zoom: 40%; /* using this to make the blob image "smaller". not the best solution */
+  zoom: 50%; /* using this to make the blob image "smaller". not the best solution */
   position: absolute;
   z-index: -1;
   left: 70%;
-  bottom: 120%;
+  bottom: 110%;
   width: 100px;
 }
 
