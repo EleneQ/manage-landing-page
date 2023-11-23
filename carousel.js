@@ -1,5 +1,5 @@
 const carousel = document.querySelector(".carousel");
-const arrowBtns = document.querySelectorAll(".wrapper i");
+const arrowBtns = document.querySelectorAll(".arrow-btn");
 const firstCardWidth = carousel.querySelector(".card").offsetWidth;
 
 const computedStyles = window.getComputedStyle(carousel);
