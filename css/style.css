@@ -5,7 +5,8 @@
 
   --clr-white: hsl(0, 100%, 100%);
   --clr-red-1: hsl(13, 100%, 96%);
-  --clr-gray-1: hsl(0, 5%, 89%);
+  --clr-gray-1: hsl(0, 11%, 95%);
+  --clr-gray-2: hsl(0, 5%, 89%);
   --clr-gray-4: hsl(228, 18%, 71%);
   --clr-blue-9: hsl(233, 12%, 13%);
 
@@ -168,7 +169,7 @@ select {
 }
 
 .bg-gray-1 {
-  background-color: var(--clr-gray-1);
+  background-color: var(--clr-gray-2);
 }
 
 .bg-gray-4 {
@@ -194,6 +195,10 @@ select {
 
 .text-gray-1 {
   color: var(--clr-gray-1);
+}
+
+.text-gray-2 {
+  color: var(--clr-gray-2);
 }
 
 .text-gray-4 {
@@ -324,6 +329,113 @@ select {
 
   .numbered-item__body {
     grid-column: 2 / -1;
+  }
+}
+
+/* carousel */
+.carousel-container {
+  width: 100%;
+  position: relative;
+}
+
+.arrow-btn {
+  position: absolute;
+  top: 50%;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  text-align: center;
+  line-height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+}
+
+.arrow-btn--left {
+  left: -22px;
+}
+
+.arrow-btn--right {
+  right: -22px;
+}
+
+.carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 3) - 12px);
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: 0;
+}
+
+/* making the scrollbar dissapear on chromium based browsers */
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* 
+  removing the smooth scroll behaviour when scrolling.
+*/
+.carousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+.carousel.dragging .card {
+  cursor: grab;
+  user-select: none; /* so that the text in the card can't be selected when dragging */
+}
+
+.carousel .card {
+  min-height: 20rem;
+  list-style: none;
+  background-color: var(--clr-gray-1);
+  border-radius: 0.5rem;
+  display: flex;
+  cursor: pointer;
+  padding: 0.7rem 2rem 1rem 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.carousel .card__img {
+  width: 6rem;
+  height: 6rem;
+}
+
+.card .card__img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+}
+
+.card h3 {
+  font-weight: 500;
+  font-size: 1.56rem;
+  margin: 1rem 0 0.3rem;
+}
+
+@media screen and (max-width: 56.25em) {
+  .carousel {
+    grid-auto-columns: calc((100% / 2) - 9px);
+  }
+}
+
+@media screen and (max-width: 37.5em) {
+  .carousel {
+    grid-auto-columns: 100%;
+  }
+
+  .carousel .card {
+    scroll-snap-align: start; /* this makes the cards move by their entire width */
   }
 }
 
@@ -495,7 +607,7 @@ select {
   }
 }
 
-/* fetures */
+/* features */
 .product-info {
   --gap: 3rem;
   flex-direction: column;
@@ -507,9 +619,14 @@ select {
   margin: auto;
 }
 
-/* carousel */
-.carousel-section {
-  margin: 5rem 0 3rem 0;
+/* testemonials */
+.testemonials {
+  margin: 5rem auto 3rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
 }
 
 /* call to action */
@@ -537,7 +654,7 @@ select {
 }
 
 @media (min-width: 51.5em) {
-  .simplify {
+  .call-to-action {
     background-image: url(../images/bg-simplify-section-desktop.svg);
     background-size: cover;
     background-position: top right -6rem;
@@ -617,7 +734,7 @@ select {
 }
 
 .nav-links li > a {
-  color: var(--clr-gray-1);
+  color: var(--clr-gray-2);
 }
 
 .nav-links li > a:hover {
