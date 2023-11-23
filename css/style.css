@@ -55,9 +55,6 @@ body {
   color: var(--clr-gray-4);
   background-color: var(--clr-white);
   min-height: 100vh;
-  background-image: url(../images/bg-tablet-pattern.svg);
-  background-position: 80px -270px;
-  background-repeat: no-repeat;
 }
 
 @media (min-width: 45.1em) {
@@ -137,6 +134,18 @@ select {
 @media (min-width: 51.5em) {
   .container {
     padding-inline: 5em;
+  }
+}
+
+.even-columns {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 51.5em) {
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
   }
 }
 
@@ -453,6 +462,11 @@ select {
   display: none;
 }
 
+/* 
+  this is a max-width so that I don't have to reset
+  all the mobile-menu styles to the origin on other 
+  screen sizes.
+*/
 @media (max-width: 51.51em) {
   body::before {
     content: "";
@@ -575,6 +589,26 @@ select {
   order: -1;
 }
 
+/* 
+  the bg blobs are pseudo-elements instead of just
+  being background-images of the .intro-section__img
+  because it's easier to make pseudo-elements overflow?????  
+*/
+.intro-section__img::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  top: 0;
+  width: 87%;
+  max-height: 70vh;
+  max-height: 70dvh; /* dvh's good for mobile. takes into account the height of the address bar */
+  aspect-ratio: 1 / 1.2;
+  background-image: url(../images/bg-tablet-pattern.svg);
+  background-repeat: no-repeat;
+  background-position: bottom left; /* moving the bottom of the background to bottom left */
+}
+
 @media (min-width: 51.5em) {
   .intro-section {
     flex-direction: row;
@@ -594,6 +628,10 @@ select {
   .intro-section__img {
     order: initial;
   }
+
+  .intro-section__img::before {
+    width: 45%;
+  }
 }
 
 @media (min-width: 51.51em) and (max-width: 58em) {
@@ -612,11 +650,32 @@ select {
   --gap: 3rem;
   flex-direction: column;
   text-align: center;
+  position: relative;
 }
 
 .product-info__unique {
   max-width: 25rem;
   margin: auto;
+}
+
+.product-info__unique::before {
+  content: url(../images/bg-tablet-pattern.svg); /* this is the content instead of just a background img because, if it were a bg, the and the bg overflowed, it would get cut off and wouldn't show up, but, with content, we don't have that problem */
+  zoom: 40%; /* using this to make the blob image "smaller". not the best solution */
+  position: absolute;
+  z-index: -1;
+  left: 70%;
+  bottom: 120%;
+  width: 100px;
+}
+
+@media (min-width: 51.5em) {
+  .product-info__unique::before {
+    zoom: 70%; /* using this to make the blob image "smaller". not the best solution */
+    z-index: -1;
+    left: -500px;
+    top: 45%;
+    width: 100px;
+  }
 }
 
 /* testemonials */
