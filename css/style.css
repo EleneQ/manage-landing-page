@@ -108,6 +108,11 @@ select {
   gap: var(--gap, 1rem);
 }
 
+/* probably should be using a grid here, but there'd be too much to change */
+.flex-even > * {
+  flex: 1;
+}
+
 .grid {
   display: grid;
   gap: var(--gap, 1rem);
@@ -137,7 +142,7 @@ select {
   }
 }
 
-.even-columns {
+/* .even-columns {
   display: grid;
   gap: 1rem;
 }
@@ -147,7 +152,7 @@ select {
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
   }
-}
+} */
 
 .overflow-x-hide {
   overflow-x: hidden;
@@ -468,7 +473,17 @@ select {
   screen sizes.
 */
 @media (max-width: 51.51em) {
-  body::before {
+  .primary-header::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.8));
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  /* body::before {
     content: "";
     position: fixed;
     inset: 0;
@@ -484,6 +499,9 @@ select {
   }
 
   body.overlay-active::before {
+    opacity: 1;
+  } */
+  .primary-header.overlay-active::before {
     opacity: 1;
   }
 
@@ -517,6 +535,9 @@ select {
 
   .mobile-menu {
     display: block;
+    position: fixed;
+    right: 2rem;
+    z-index: 9999;
     border: none;
     background: transparent;
     cursor: pointer;
@@ -622,7 +643,7 @@ select {
   }
 
   .intro-section__info p {
-    max-width: 24rem;
+    max-width: 24rem; /* probably should be a utility class since there are a lot of similar max-widths on the text blocks */
   }
 
   .intro-section__img {
@@ -670,7 +691,7 @@ select {
 
 @media (min-width: 51.5em) {
   .product-info__unique::before {
-    zoom: 70%; /* using this to make the blob image "smaller". not the best solution */
+    zoom: 70%;
     z-index: -1;
     left: -500px;
     top: 45%;
