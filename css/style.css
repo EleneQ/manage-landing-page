@@ -382,7 +382,8 @@ select {
   grid-auto-columns: calc((100% / 3) - 12px);
   gap: 1rem;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  /* scroll-snap-type: x mandatory; */
+  /* scroll-snap-align: start; */
   scroll-behavior: smooth;
   scrollbar-width: 0;
 }
